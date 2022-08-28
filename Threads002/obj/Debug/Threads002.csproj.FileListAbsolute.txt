@@ -1,0 +1,8 @@
+C:\VisualStudioProjects\Threads002\Threads002\bin\Debug\Threads002.exe.config
+C:\VisualStudioProjects\Threads002\Threads002\bin\Debug\Threads002.exe
+C:\VisualStudioProjects\Threads002\Threads002\bin\Debug\Threads002.pdb
+C:\VisualStudioProjects\Threads002\Threads002\obj\Debug\Threads002.csprojResolveAssemblyReference.cache
+C:\VisualStudioProjects\Threads002\Threads002\obj\Debug\Threads002.Properties.Resources.resources
+C:\VisualStudioProjects\Threads002\Threads002\obj\Debug\Threads002.csproj.GenerateResource.Cache
+C:\VisualStudioProjects\Threads002\Threads002\obj\Debug\Threads002.exe
+C:\VisualStudioProjects\Threads002\Threads002\obj\Debug\Threads002.pdb
