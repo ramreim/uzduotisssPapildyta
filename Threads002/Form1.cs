@@ -24,6 +24,12 @@ namespace Threads002
         Label lblThreadNr = new Label();
 
 
+
+
+        ListView ListViewDisplay = new ListView();
+
+
+
         public Form1()
         {
 
@@ -84,7 +90,39 @@ namespace Threads002
             this.Controls.Add(lblThreadNr);
 
 
-            
+
+
+            ColumnHeader trIdCol = new ColumnHeader();
+            trIdCol.Text = "Thread ID";
+            trIdCol.Width = 70;
+            trIdCol.TextAlign = HorizontalAlignment.Left;
+
+            ColumnHeader eiluteCol = new ColumnHeader();
+            eiluteCol.Text = "Sugeneruota eilute";
+            eiluteCol.Width = 180;
+            eiluteCol.TextAlign = HorizontalAlignment.Left;
+
+
+            ListViewDisplay.View = View.Details;
+            ListViewDisplay.LabelEdit = true;
+            ListViewDisplay.CheckBoxes = false;
+            ListViewDisplay.FullRowSelect = true;
+            ListViewDisplay.GridLines = true;
+            ListViewDisplay.Sorting = System.Windows.Forms.SortOrder.None;
+
+
+            ListViewDisplay.Left = 850;
+            ListViewDisplay.Top = 20;
+            ListViewDisplay.Height = 500;
+            ListViewDisplay.Width = 250;
+
+            ListViewDisplay.Columns.Add(trIdCol);
+            ListViewDisplay.Columns.Add(eiluteCol);
+            this.Controls.Add(ListViewDisplay);
+
+
+
+
 
             #endregion labels_buttons_coordinates
 
