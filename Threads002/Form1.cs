@@ -181,7 +181,7 @@ namespace Threads002
                 txtbThreadNr.Text = "2";
                 ivesrasSakuSk = 2;
 
-                MessageBox.Show("Klaida, neteisingas sauku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  " + ee.ToString());
+                MessageBox.Show("Klaida, neteisingas saku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  " + ee.ToString());
             }
 
             if(ivesrasSakuSk < 2 || ivesrasSakuSk > 15)
@@ -191,7 +191,7 @@ namespace Threads002
                 txtbThreadNr.Enabled = true;
                 txtbThreadNr.Text = "2";
                 ivesrasSakuSk = 2;
-                MessageBox.Show("Klaida, neteisingas sauku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  " + ee.ToString());
+                MessageBox.Show("Klaida, neteisingas saku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  ");
 
             }
 
