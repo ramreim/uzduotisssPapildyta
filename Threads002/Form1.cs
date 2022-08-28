@@ -15,7 +15,7 @@ namespace Threads002
         public Form1()
         {
             InitializeComponent();
-            this.Size = new Size(1100,700);
+            this.Size = new Size(1400,700);
 
         }
     }
