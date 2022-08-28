@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace Threads002
@@ -29,10 +31,19 @@ namespace Threads002
         ListView ListViewDisplay = new ListView();
 
 
+        Thread[] ThreadArr = new Thread[16];
+        Random rnd = new Random();
+
+
+
+        public static int ivesrasSakuSk = 0;
+
 
         public Form1()
         {
 
+            this.btnStart.Click += new System.EventHandler(this.btnStart_click);
+            this.btnStop.Click += new System.EventHandler(this.btnStop_click);
 
 
             this.btnExit.Click += new System.EventHandler(this.btnExit_click);
@@ -128,10 +139,70 @@ namespace Threads002
 
         }
 
+
         private void btnExit_click(object sender, EventArgs e)
         {
 
             System.Windows.Forms.Application.Exit();
+
+        }
+
+        private void btnStart_click(object sender, EventArgs e)
+        {
+
+            txtbThreadNr.Enabled = false;
+            btnStart.Enabled = false;
+            btnStop.Enabled = true;
+
+
+
+            try
+            {
+                ivesrasSakuSk = Convert.ToInt16(txtbThreadNr.Text);
+
+                if (ivesrasSakuSk >= 2 && ivesrasSakuSk <= 15)
+                {
+                    btnStart.Enabled = false;
+                    btnStop.Enabled = true;
+                    for (int ThreadNr = 0; ThreadNr <= ivesrasSakuSk; ThreadNr++)
+                    {
+                       // ThreadArr[ThreadNr] = new Thread(new ParameterizedThreadStart(Method1));
+                        ThreadArr[ThreadNr].Start(new object[] { ThreadNr, "sakos nr: ", ThreadNr * 1000 + 1000 });
+
+                    }
+                }
+
+            }
+            catch (Exception ee)
+            {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                txtbThreadNr.Enabled = true;
+                txtbThreadNr.Text = "2";
+                ivesrasSakuSk = 2;
+
+                MessageBox.Show("Klaida, neteisingas sauku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  " + ee.ToString());
+            }
+
+            if(ivesrasSakuSk < 2 || ivesrasSakuSk > 15)
+            {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+                txtbThreadNr.Enabled = true;
+                txtbThreadNr.Text = "2";
+                ivesrasSakuSk = 2;
+                MessageBox.Show("Klaida, neteisingas sauku skaicius\nTuri buti nuo 2 iki 15   \n\n\n  " + ee.ToString());
+
+            }
+
+        }
+        private void btnStop_click(object sender, EventArgs e)
+        {
+
+            txtbThreadNr.Enabled = true;
+            btnStart.Enabled = true;
+            btnStop.Enabled = false;
+
 
         }
 
