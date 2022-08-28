@@ -140,6 +140,30 @@ namespace Threads002
         }
 
 
+
+
+        void Method1(object param)
+        {
+            while (true)
+            {
+                int SleepTime = rnd.Next(500, 2000);
+
+
+                object[] parameters = (object[])param;
+                int ThreadNrParam = (int)parameters[0];
+                string param2 = (string)parameters[1];
+                int laikas1 = (int)parameters[2];
+                Thread.Sleep(SleepTime);
+
+
+
+            }
+
+
+        }
+
+
+
         private void btnExit_click(object sender, EventArgs e)
         {
 
