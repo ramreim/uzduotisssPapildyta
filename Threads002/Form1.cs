@@ -158,6 +158,7 @@ namespace Threads002
                 string param2 = (string)parameters[1];
                 int laikas1 = (int)parameters[2];
                 Thread.Sleep(SleepTime);
+                funkcija(ThreadNrParam, SleepTime);
 
 
 
@@ -277,6 +278,12 @@ namespace Threads002
             txtbThreadNr.Enabled = true;
             btnStart.Enabled = true;
             btnStop.Enabled = false;
+
+
+            for (int ThreadNr = 0; ThreadNr <= ivesrasSakuSk; ThreadNr++)
+            {
+                ThreadArr[ThreadNr].Abort();
+            }
 
 
         }
