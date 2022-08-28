@@ -36,6 +36,10 @@ namespace Threads002
 
 
 
+
+        List<GeneratedDataClass> GeneratedDataList = new List<GeneratedDataClass>();
+
+
         public static int ivesrasSakuSk = 0;
 
 
@@ -164,6 +168,53 @@ namespace Threads002
 
 
 
+        void funkcija(int GetThreadNr, int GetSleepTime)
+        {
+            string RandString = "";
+            for (int i = 0; i <= rnd.Next(5, 10); i++)
+            {
+                RandString += (char)rnd.Next(49,121);                
+            }
+
+            ListViewItem item = new ListViewItem();
+            item = new ListViewItem(new string[] { GetThreadNr.ToString(), RandString });
+
+
+            string datee = "";
+            string timee = "";
+
+            datee = DateTime.Now.ToString("yyyy-MM-dd");
+            timee = DateTime.Now.ToString("HH:mm:ss.fff");
+
+
+
+
+
+            GeneratedDataList.Add(new GeneratedDataClass { ThreadID = GetThreadNr, GeneratedString = RandString, Timee = timee, Datee = datee, ThreadSleepTime = GetSleepTime});
+
+
+
+
+
+            if (GetThreadNr > 0)
+            {
+                ListViewDisplay.Invoke((MethodInvoker)delegate ()
+                {
+                    ListViewDisplay.Items.Add(item);
+                    if (ListViewDisplay.Items.Count > 20)
+                    {
+                        ListViewDisplay.Items.RemoveAt(0);
+                    }
+                });
+
+               
+
+
+            }
+
+
+        }
+
         private void btnExit_click(object sender, EventArgs e)
         {
 
@@ -190,7 +241,7 @@ namespace Threads002
                     btnStop.Enabled = true;
                     for (int ThreadNr = 0; ThreadNr <= ivesrasSakuSk; ThreadNr++)
                     {
-                       // ThreadArr[ThreadNr] = new Thread(new ParameterizedThreadStart(Method1));
+                        ThreadArr[ThreadNr] = new Thread(new ParameterizedThreadStart(Method1));
                         ThreadArr[ThreadNr].Start(new object[] { ThreadNr, "sakos nr: ", ThreadNr * 1000 + 1000 });
 
                     }
