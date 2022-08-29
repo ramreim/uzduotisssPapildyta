@@ -31,13 +31,13 @@ namespace Threads002
             // DateTime dateeee = DateTime.Parse(dateee2, System.Globalization.CultureInfo.CurrentCulture);
 
 
-            SqlConnection conn = new SqlConnection("Server=192.168.0.105;Database=uvsDB666;Integrated Security=True");
+            SqlConnection conn = new SqlConnection("Server=192.168.0.105;Database=UvsDb002;Integrated Security=True");
             conn.Open();
             string SqlQuery = "";
             // sakinys = "INSERT INTO sakosTable(ThreadID, Timee, Data) VALUES(" + gautasid + ", '" + gautasLaikas + "', '" + gautaEilute + "')";
 
-            SqlQuery = "insert into dbo.ThreadsTable2(ThreadID, ThreadTimeMs, ThreadString, Dataa, Timee) values(" + GetThreadId + ", " + GetThreadTimeMs + ", '" + GetGeneratedString + "', '" + GetGeneratedDate + "', '" + GetGeneratedTime + "')";
-
+            SqlQuery = "insert into dbo.ThreadsTable(ThreadID, ThreadTimeMs, ThreadString, Dataa, Timee) values(" + GetThreadId + ", " + GetThreadTimeMs + ", '" + GetGeneratedString + "', '" + GetGeneratedDate + "', '" + GetGeneratedTime + "')";
+            //SqlQuery = "insert into dbo.ThreadsTable2(ThreadID, ThreadTimeMs, ThreadString, Dataa, Timee) values(" + GetThreadId + ", " + GetThreadTimeMs + ", '" + GetGeneratedString + "', '" + GetGeneratedDate + "', '" + GetGeneratedTime + "')";
             //sakinys = "insert into dbo.ThreadsTable3 (ThreadID, ThreadTimeMs, ThreadString, DateString, TimeString) values (10, 25, 'Saulius', '"+dateee2+"', '"+timeee2+"')";
 
 
