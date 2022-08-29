@@ -44,6 +44,10 @@ namespace Threads002
         public static int ivesrasSakuSk = 0;
 
 
+        DBClass DBCumunication = new DBClass();
+
+
+
         public Form1()
         {
 
@@ -194,7 +198,7 @@ namespace Threads002
             string RandString = "";
             for (int i = 0; i <= rnd.Next(5, 10); i++)
             {
-                RandString += (char)rnd.Next(49,121);                
+                RandString += (char)rnd.Next(49, 121);
             }
 
             ListViewItem item = new ListViewItem();
@@ -211,7 +215,7 @@ namespace Threads002
 
 
 
-            GeneratedDataList.Add(new GeneratedDataClass { ThreadID = GetThreadNr, GeneratedString = RandString, Timee = timee, Datee = datee, ThreadSleepTime = GetSleepTime});
+            GeneratedDataList.Add(new GeneratedDataClass { ThreadID = GetThreadNr, GeneratedString = RandString, Timee = timee, Datee = datee, ThreadSleepTime = GetSleepTime });
 
 
 
@@ -227,13 +231,57 @@ namespace Threads002
                         ListViewDisplay.Items.RemoveAt(0);
                     }
                 });
-
-               
-
-
             }
 
 
+            string timeee = "";
+            string dateee = "";
+
+            dateee = DateTime.Now.ToString("yyyy-MM-dd");
+            timeee = DateTime.Now.ToString("HH:mm:ss.fff");
+
+
+            try
+            {
+                // viewMessage = 0;
+
+                if (chbparametrai.Checked)
+                {
+                    //DBCumunication.irasymasDb(GetTreadNr, GetSleepTime.ToString(), RandString);
+                    DBCumunication.irasymasDb(GetThreadNr, GetSleepTime, RandString, dateee, timeee);
+                    //DBCumunication.irasymasDb(GetTreadNr, GetSleepTime, RandString, dateee, timeee);
+                }
+
+            }
+            catch (Exception dbex)
+            {
+
+
+
+                if (GetThreadNr == 0)
+                {
+                    MessageBox.Show("ivyko klaida MS SQL \n\n\n");
+                }
+
+
+
+                btnStart.Invoke((MethodInvoker)delegate () { btnStart.Enabled = true; });
+                btnStop.Invoke((MethodInvoker)delegate () { btnStop.Enabled = false; });
+                txtbThreadNr.Invoke((MethodInvoker)delegate () { txtbThreadNr.Enabled = true; });
+                chbparametrai.Invoke((MethodInvoker)delegate () { chbparametrai.Enabled = true; });
+
+
+
+                for (int ThreadNr = 0; ThreadNr <= ivesrasSakuSk; ThreadNr++)
+                {
+
+                    //ThreadsArr[ThreadNr].Suspend();
+                    ThreadArr[ThreadNr].Abort();
+
+                }
+
+
+            }
         }
 
         private void btnExit_click(object sender, EventArgs e)
