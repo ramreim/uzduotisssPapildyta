@@ -13,7 +13,7 @@ namespace Threads002
     public class DBClass
     {
 
-        public void irasymasDb(int gautasid, int gautasLaikas, string gautaEilute, string gautaData, string gautasLikas2)
+        public void irasymasDb(int GetThreadId, int GetThreadTimeMs, string GetGeneratedString, string GetGeneratedDate, string GetGeneratedTime)
         {
 
             //insert into dbo.ThreadsTable3 (ThreadID, ThreadTimeMs, ThreadString, DateString, TimeString) values (10, 25, 'Saulius', '2021-12-25', '19:25:36.754');
@@ -33,15 +33,15 @@ namespace Threads002
 
             SqlConnection conn = new SqlConnection("Server=192.168.0.105;Database=uvsDB666;Integrated Security=True");
             conn.Open();
-            string sakinys = "";
+            string SqlQuery = "";
             // sakinys = "INSERT INTO sakosTable(ThreadID, Timee, Data) VALUES(" + gautasid + ", '" + gautasLaikas + "', '" + gautaEilute + "')";
 
-            sakinys = "insert into dbo.ThreadsTable2(ThreadID, ThreadTimeMs, ThreadString, Dataa, Timee) values(" + gautasid + ", " + gautasLaikas + ", '" + gautaEilute + "', '" + gautaData + "', '" + gautasLikas2 + "')";
+            SqlQuery = "insert into dbo.ThreadsTable2(ThreadID, ThreadTimeMs, ThreadString, Dataa, Timee) values(" + GetThreadId + ", " + GetThreadTimeMs + ", '" + GetGeneratedString + "', '" + GetGeneratedDate + "', '" + GetGeneratedTime + "')";
 
             //sakinys = "insert into dbo.ThreadsTable3 (ThreadID, ThreadTimeMs, ThreadString, DateString, TimeString) values (10, 25, 'Saulius', '"+dateee2+"', '"+timeee2+"')";
 
 
-            SqlCommand cmd = new SqlCommand(sakinys, conn);
+            SqlCommand cmd = new SqlCommand(SqlQuery, conn);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
 

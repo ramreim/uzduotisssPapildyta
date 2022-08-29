@@ -27,7 +27,7 @@ namespace Threads002
         Label lblWriteToDbCheckbox = new Label();
 
 
-        CheckBox chbparametrai = new CheckBox();
+        CheckBox ChBoxWritedToDb = new CheckBox();
 
         ListView ListViewDisplay = new ListView();
 
@@ -119,13 +119,13 @@ namespace Threads002
 
 
 
-            chbparametrai.Left = 200;
-            chbparametrai.Top = 80;
-            chbparametrai.Height = 20;
-            chbparametrai.Width = 100;
-            //chbparametrai.Text = "write Db";
-            chbparametrai.Checked = true;
-            this.Controls.Add(chbparametrai);
+            ChBoxWritedToDb.Left = 200;
+            ChBoxWritedToDb.Top = 80;
+            ChBoxWritedToDb.Height = 20;
+            ChBoxWritedToDb.Width = 100;
+            //ChBoxWritedToDb.Text = "write Db";
+            ChBoxWritedToDb.Checked = true;
+            this.Controls.Add(ChBoxWritedToDb);
 
 
 
@@ -245,7 +245,7 @@ namespace Threads002
             {
                 // viewMessage = 0;
 
-                if (chbparametrai.Checked)
+                if (ChBoxWritedToDb.Checked)
                 {
                     //DBCumunication.irasymasDb(GetTreadNr, GetSleepTime.ToString(), RandString);
                     DBCumunication.irasymasDb(GetThreadNr, GetSleepTime, RandString, dateee, timeee);
@@ -268,7 +268,7 @@ namespace Threads002
                 btnStart.Invoke((MethodInvoker)delegate () { btnStart.Enabled = true; });
                 btnStop.Invoke((MethodInvoker)delegate () { btnStop.Enabled = false; });
                 txtbThreadNr.Invoke((MethodInvoker)delegate () { txtbThreadNr.Enabled = true; });
-                chbparametrai.Invoke((MethodInvoker)delegate () { chbparametrai.Enabled = true; });
+                ChBoxWritedToDb.Invoke((MethodInvoker)delegate () { ChBoxWritedToDb.Enabled = true; });
 
 
 
