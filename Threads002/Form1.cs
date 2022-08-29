@@ -24,9 +24,10 @@ namespace Threads002
 
 
         Label lblThreadNr = new Label();
+        Label lblWriteToDbCheckbox = new Label();
 
 
-
+        CheckBox chbparametrai = new CheckBox();
 
         ListView ListViewDisplay = new ListView();
 
@@ -103,6 +104,25 @@ namespace Threads002
             lblThreadNr.Text = "Saku sk.:";
             lblThreadNr.Enabled = true;
             this.Controls.Add(lblThreadNr);
+
+
+            lblWriteToDbCheckbox.Left = 140;
+            lblWriteToDbCheckbox.Top = 80;
+            lblWriteToDbCheckbox.Height = 20;
+            lblWriteToDbCheckbox.Width = 60;
+            lblWriteToDbCheckbox.Text = "Write Db:";
+            this.Controls.Add(lblWriteToDbCheckbox);
+
+
+
+            chbparametrai.Left = 200;
+            chbparametrai.Top = 80;
+            chbparametrai.Height = 20;
+            chbparametrai.Width = 100;
+            //chbparametrai.Text = "write Db";
+            chbparametrai.Checked = true;
+            this.Controls.Add(chbparametrai);
+
 
 
 
